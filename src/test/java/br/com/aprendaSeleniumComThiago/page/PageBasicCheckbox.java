@@ -75,6 +75,5 @@ public class PageBasicCheckbox {
 		if (checkboxOption3.isSelected()) checkboxOption3.click();
 		if (checkboxOption4.isSelected()) checkboxOption4.click();
 	}
-		
 	
 }

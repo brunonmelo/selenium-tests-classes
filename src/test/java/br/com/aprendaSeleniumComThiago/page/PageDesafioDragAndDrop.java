@@ -15,13 +15,6 @@ import br.com.aprendaSeleniumComThiago.core.CoreDriver;
 
 public class PageDesafioDragAndDrop {
 	
-	public static String ipodId = "1";
-	public static final int iMacId = 2;
-	public static String iphoneId = "3";
-	public static final int ipodShuffleId = 4;
-	public static final int ipodNanoId = 5;
-	public static final int appleTvId = 6;
-	
 	private WebDriver driver;
 
 	public PageDesafioDragAndDrop(WebDriver driver) {
