@@ -1,10 +1,10 @@
-package br.com.aprendaSeleniumComThiago.test;
+package br.com.aprendaSeleniumComThiago.test.seleniumeasy.inputForms;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 import br.com.aprendaSeleniumComThiago.core.CoreBaseTest;
-import br.com.aprendaSeleniumComThiago.page.PageSimpleForm;
+import br.com.aprendaSeleniumComThiago.page.seleniumeasy.inputForms.PageSimpleForm;
 
 public class TestSimpleForm extends CoreBaseTest {
 	

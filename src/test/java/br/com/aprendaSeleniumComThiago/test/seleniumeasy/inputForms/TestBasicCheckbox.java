@@ -1,10 +1,10 @@
-package br.com.aprendaSeleniumComThiago.test;
+package br.com.aprendaSeleniumComThiago.test.seleniumeasy.inputForms;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 import br.com.aprendaSeleniumComThiago.core.CoreBaseTest;
-import br.com.aprendaSeleniumComThiago.page.PageBasicCheckbox;
+import br.com.aprendaSeleniumComThiago.page.seleniumeasy.inputForms.PageBasicCheckbox;
 
 public class TestBasicCheckbox extends CoreBaseTest {
 	

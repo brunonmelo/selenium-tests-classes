@@ -1,4 +1,4 @@
-package br.com.aprendaSeleniumComThiago.page;
+package br.com.aprendaSeleniumComThiago.page.seleniumeasy.inputForms;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -60,7 +60,7 @@ public class PageRadioButtonDemo {
 	public boolean isSelectedGender(String gender) {
 		buttonGenderCheckElement.click();
 		String msg = "Radio button '" + gender + "' is checked";
-		return textGenderResult.equals(msg);
+		return textGenderResult.getText().equals(msg);
 	}
 	
 	public boolean isNotSelectedGender() {
@@ -70,10 +70,11 @@ public class PageRadioButtonDemo {
 	
 	public boolean isGroupSelected(String gender, String ageGroup) {
 		buttonGroupElement.click();
+		String resultText = textGroupResultElement.getText();
+		boolean isGenderMatch = resultText.contains("Sex : " + gender);		
+		boolean isAgeGroupMatch = resultText.contains("Age group: " + ageGroup);
 		
-		
-		
-		return true;
+		return isGenderMatch && isAgeGroupMatch;
 	}
 	
 	// getters

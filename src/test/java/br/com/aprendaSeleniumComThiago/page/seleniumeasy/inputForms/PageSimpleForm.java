@@ -1,4 +1,4 @@
-package br.com.aprendaSeleniumComThiago.page;
+package br.com.aprendaSeleniumComThiago.page.seleniumeasy.inputForms;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
