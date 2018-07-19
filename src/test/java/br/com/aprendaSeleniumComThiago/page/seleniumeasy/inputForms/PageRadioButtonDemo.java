@@ -71,8 +71,15 @@ public class PageRadioButtonDemo {
 	public boolean isGroupSelected(String gender, String ageGroup) {
 		buttonGroupElement.click();
 		String resultText = textGroupResultElement.getText();
-		boolean isGenderMatch = resultText.contains("Sex : " + gender);		
-		boolean isAgeGroupMatch = resultText.contains("Age group: " + ageGroup);
+		boolean isGenderMatch = true;
+		boolean isAgeGroupMatch = true;
+		
+		if(gender != null && gender.length() > 0) {
+			isGenderMatch = resultText.contains("Sex : " + gender);
+		}
+		if(ageGroup != null && ageGroup.length() > 0) {
+			isAgeGroupMatch = resultText.contains("Age group: " + ageGroup);
+		}
 		
 		return isGenderMatch && isAgeGroupMatch;
 	}

@@ -85,6 +85,13 @@ public class CoreDriver {
 		return (OS.indexOf("nix") >= 0 || OS.indexOf("nux") >= 0 || OS
 				.indexOf("aix") > 0);
 	}
+	/**
+	 * @return sistema Operacional Mac
+	 */
+	public static boolean isMac() {
+		return ((OS.indexOf("mac") >= 0) || (OS.indexOf("darwin") >= 0));
+	}
+	
 	
 	public static boolean isOS64bits() {
 		if (ConversorTipos.check(OS_ARCH)) {
@@ -99,8 +106,11 @@ public class CoreDriver {
 				file = new File(Property.CHROME_DRIVE_PATH);
 			} else if (isUnix()) {
 				file = new File(Property.CHROME_DRIVE_LINUX_PATH);
-			} else
+			} else if (isMac()){
+				file = new File(Property.CHROME_DRIVE_MAC_PATH);
+			} else {
 				throw new Exception("Sistema operacional nao compativel");
+			}
 		return file;
 	}
 	private static File getFileDriverPathFirefox() throws Exception{
