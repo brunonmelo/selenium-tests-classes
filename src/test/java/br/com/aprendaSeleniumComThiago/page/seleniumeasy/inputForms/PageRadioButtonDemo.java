@@ -65,7 +65,7 @@ public class PageRadioButtonDemo {
 	
 	public boolean isNotSelectedGender() {
 		buttonGenderCheckElement.click();
-		return textGenderResult.equals(RADIO_NOT_CHECKED);
+		return textGenderResult.getText().equals(RADIO_NOT_CHECKED);
 	}
 	
 	public boolean isGroupSelected(String gender, String ageGroup) {

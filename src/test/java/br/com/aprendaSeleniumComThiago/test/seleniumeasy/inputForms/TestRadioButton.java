@@ -27,22 +27,34 @@ public class TestRadioButton extends CoreBaseTest {
 		Assert.assertTrue(radioButtonPage.isSelectedGender(PageRadioButtonDemo.FEMALE));
 	}
 	
-//	@Test
-//	public void testShowingTextCheckAllOnButton() {
-//		PageRadioButtonDemo radioButtonPage = navegaParaPage();
-//		Assert.assertTrue(navegaParaPage.isShowingTextCheckAllOnButton());
-//	}
-//	
-//	@Test
-//	public void testShowingTextUncheckAllOnButton() {
-//		PageRadioButtonDemo radioButtonPage = navegaParaPage();
-//		Assert.assertTrue(navegaParaPage.isShowingTextUncheckAllOnButton());
-//	}
-//	
-//	@Test
-//	public void testAllCheckboxCheckedOnClickCheckAllButton() {
-//		PageRadioButtonDemo radioButtonPage = navegaParaPage();
-//		Assert.assertTrue(navegaParaPage.isAllCheckboxCheckedOnClickCheckAllButton());
-//	}
+	@Test
+	public void testSimpleRadioNoneChecked() {
+		PageRadioButtonDemo radioButtonPage = navegaParaPage();
+		Assert.assertTrue(radioButtonPage.isNotSelectedGender());
+	}
+	
+	
+	@Test
+	public void testIsGroupMale1To5Selected() {
+		PageRadioButtonDemo radioButtonPage = navegaParaPage();
+		radioButtonPage.getMaleGruopRadioElement().click();
+		radioButtonPage.getAgeGroup0To5RadioElement().click();
+		Assert.assertTrue(radioButtonPage.isGroupSelected(PageRadioButtonDemo.MALE, PageRadioButtonDemo.ZERO_TO_FIVE));
+	}
+	
+	@Test
+	public void testIsGroupFemale5To15Selected() {
+		PageRadioButtonDemo radioButtonPage = navegaParaPage();
+		radioButtonPage.getFemaleGruopRadioElement().click();
+		radioButtonPage.getAgeGroup5To15RadioElement().click();
+		Assert.assertTrue(radioButtonPage.isGroupSelected(PageRadioButtonDemo.FEMALE, PageRadioButtonDemo.FIVE_TO_FIFTEEN));
+	}
+	
+	@Test
+	public void testIsGroup15To50Selected() {
+		PageRadioButtonDemo radioButtonPage = navegaParaPage();
+		radioButtonPage.getAgeGroup15To50RadioElement().click();
+		Assert.assertTrue(radioButtonPage.isGroupSelected("", PageRadioButtonDemo.FIFTEEN_TO_FIFTY));
+	}
 	
 }
