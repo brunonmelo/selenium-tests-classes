@@ -7,10 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class PageSimpleForm {
 	
-//	private WebDriver driver;
-
 	public PageSimpleForm(WebDriver driver) {
-//		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	

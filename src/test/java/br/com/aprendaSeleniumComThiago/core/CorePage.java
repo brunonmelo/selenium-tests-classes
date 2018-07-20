@@ -93,6 +93,14 @@ public abstract class CorePage<T> {
 			fail("Erro ao selecionar no elemento: ["+element.getTagName()+ "] com o o valor: "+valueVisibel);
 		}
 	}
+	public void selectElementByIndex(WebElement element, int index){
+		try{
+			new Select(element).selectByIndex(index);
+		}catch(NoSuchElementException e){
+//			Utils.takeScreenshot(true);
+			fail("Erro ao selecionar no elemento: ["+element.getTagName()+ "] com o index: "+index);
+		}
+	}
 	public void acceptAlert(){
 		try {
 	        Alert alert = this.driver.switchTo().alert();
