@@ -35,7 +35,7 @@ public abstract class Property {
 		PHANTOM_DRIVE_LINUX_PATH_64BITS 		= new File("").getAbsolutePath() + SRC_SELENIUM + "driver/linux/phantomjs64";
 		CHROME_DRIVE_LINUX_PATH 				= new File("").getAbsolutePath() + SRC_SELENIUM + "driver/linux/chromedriver";
 		FIREFOX_DRIVE_LINUX_PATH 				= new File("").getAbsolutePath() + SRC_SELENIUM + "driver/linux/geckodriver";
-		CHROME_DRIVE_MAC_PATH 				= new File("").getAbsolutePath() + SRC_SELENIUM + "driver/mac/chromedriver";
+		CHROME_DRIVE_MAC_PATH 					= new File("").getAbsolutePath() + SRC_SELENIUM + "driver/mac/chromedriver";
 		BROWSER_NAME 							= properties.getProperty("browser.name");
 		URL										= properties.getProperty("url");
 		

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import br.com.aprendaSeleniumComThiago.core.CoreBaseTest;
@@ -11,7 +12,7 @@ import br.com.aprendaSeleniumComThiago.page.seleniumeasy.inputForms.PageSelectDr
 import br.com.aprendaSeleniumComThiago.page.seleniumeasy.inputForms.PageSelectDropdownList.DropDownList;
 import br.com.aprendaSeleniumComThiago.page.seleniumeasy.inputForms.PageSelectDropdownList.MultiSelectDownList;
 
-public class TestPageDropdownList extends CoreBaseTest {
+public class TestPageDropdownList extends CoreBaseTest{
 	
 	public PageSelectDropdownList navegaParaPage() {
 		driver.navigate().to("http://www.seleniumeasy.com/test/basic-select-dropdown-demo.html");
@@ -37,7 +38,7 @@ public class TestPageDropdownList extends CoreBaseTest {
 				.isPrintSingleSelectionFirstSelectedElement(MultiSelectDownList.New_York));
 	}
 	
-	@Test
+	@Test @Ignore
 	public void testaIsPrintMultipleSelectionFirstSelectedElement() {
 		PageSelectDropdownList pageSelectDropdownList = navegaParaPage();
 		List<MultiSelectDownList> selectItens = new ArrayList<>();

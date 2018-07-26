@@ -43,7 +43,7 @@ public class TestDesafioDragAndDrop extends CoreBaseTest{
 	public void testDesafioDragAndDropVariosItens(){
 		PageDesafioDragAndDrop pageDesafioDragAndDrop = new PageDesafioDragAndDrop(driver);
 		PageCheckout pageCheckout = new PageCheckout(driver);
-		List<String> itens = new ArrayList<>(); 
+		List<String> itens = new ArrayList<String>(); 
 		
 		driver.navigate().to("http://eliasnogueira.com/arquivos_blog/selenium/desafio/3desafio/drag_and_drop/demo.php");
 		
