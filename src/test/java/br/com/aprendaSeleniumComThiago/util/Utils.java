@@ -22,7 +22,11 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 
 import br.com.aprendaSeleniumComThiago.core.CoreDriver;
 
@@ -136,6 +140,20 @@ public abstract class Utils {
 			fail("Erro ao tirar Screenshot");
 		}
 	}*/
+	
+	public static void takeScreenshot(WebDriver driver, String casoDeTeste, String nomeEvidencia) {
+		File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		
+		String pastaImagem = "Evidencias/" + casoDeTeste + "/" + nomeEvidencia + ".jpg";
+		String pastaDestino = "resultadoTest/" + pastaImagem;
+		
+		File fileDestino = new File(pastaDestino);
+		try {
+			FileUtils.copyFile(srcFile,fileDestino, true);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public static String formataDataHoraBancoddMMyyyy00_00_00(String dataBanco){
 		

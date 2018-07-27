@@ -1,7 +1,9 @@
 package br.com.aprendaSeleniumComThiago.core;
 
 import java.io.File;
+import java.net.URL;
 
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,6 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import br.com.aprendaSeleniumComThiago.util.Browser;
 import br.com.aprendaSeleniumComThiago.util.ConversorTipos;
@@ -34,7 +37,8 @@ public class CoreDriver {
 			try {
 				if(Browser.CHROME.equals(Property.BROWSER_NAME)){
 					ChromeOptions chromeOptions = new ChromeOptions();
-					chromeOptions.addArguments("--start-maximized");// Maximiza o navegador
+					// chromeOptions.addArguments("--start-maximized");// Maximiza o navegador
+					chromeOptions.setHeadless(true);
 					System.setProperty("webdriver.chrome.driver",getFileDriverPathChrome().getAbsolutePath());
 					driver = new ChromeDriver(chromeOptions);
 				}else{
@@ -55,6 +59,21 @@ public class CoreDriver {
 						firefoxOptions.setHeadless(false);
 						firefoxOptions.setProfile(getProfileFireFox(firefoxProfile));
 						driver = new FirefoxDriver(firefoxOptions);
+					} else if(Browser.REMOTE_CHROME.equals(Property.BROWSER_NAME)) {
+						String remoteAddress = Property.REMOTE_URL;
+						Capabilities capabilities = new ChromeOptions();
+						driver = new RemoteWebDriver(new URL(remoteAddress), capabilities);
+					} else if(Browser.REMOTE_FIREFOX.equals(Property.BROWSER_NAME)) {
+						Proxy proxy = new Proxy();
+						proxy.setProxyType(Proxy.ProxyType.AUTODETECT);
+						String remoteAddress = Property.REMOTE_URL;
+						FirefoxOptions firefoxOptions = new FirefoxOptions();
+						firefoxOptions.setCapability("marionette", true);
+						firefoxOptions.setCapability(CapabilityType.PROXY, proxy);
+						firefoxOptions.setCapability("pdfjs.disabled", false);
+						//Rodar sem abrir o navegador = false, com o navegador = true
+						firefoxOptions.setHeadless(false);
+						driver = new RemoteWebDriver(new URL(remoteAddress), firefoxOptions);
 					}
 				}
 			} catch (Exception e) {
@@ -66,7 +85,7 @@ public class CoreDriver {
 	
 	public static void resetDriver() {
 		if(driver != null){
-			driver.close();
+			driver.quit();
 		}
 		driver = null;
 	}

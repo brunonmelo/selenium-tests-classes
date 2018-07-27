@@ -10,5 +10,7 @@ public class Browser {
 	public static final String CHROME = "chrome";
 	public static final String IE = "ie";
 	public static final String PHANTOMJS = "phantomjs";
+	public static final String REMOTE_CHROME = "remoteChrome";
+	public static final String REMOTE_FIREFOX = "remoteFirefox";
 	
 }

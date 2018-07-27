@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import br.com.aprendaSeleniumComThiago.core.CoreBaseTest;
 import br.com.aprendaSeleniumComThiago.page.seleniumeasy.inputForms.PageBasicCheckbox;
+import br.com.aprendaSeleniumComThiago.util.Utils;
 
 public class TestBasicCheckbox extends CoreBaseTest {
 	
@@ -16,25 +17,33 @@ public class TestBasicCheckbox extends CoreBaseTest {
 	@Test
 	public void testSingleCheckBoxTextVisible() {
 		PageBasicCheckbox navegaParaPage = navegaParaPage();
-		Assert.assertTrue(navegaParaPage.isSingleCheckBoxTextVisible());
+		boolean textVisible = navegaParaPage.isSingleCheckBoxTextVisible();
+		Utils.takeScreenshot(driver, "BasicCheckbox", "testSingleCheckBoxTextVisible");
+		Assert.assertTrue(textVisible);
 	}
 	
 	@Test
 	public void testShowingTextCheckAllOnButton() {
 		PageBasicCheckbox navegaParaPage = navegaParaPage();
-		Assert.assertTrue(navegaParaPage.isShowingTextCheckAllOnButton());
+		boolean checkAllOnButton = navegaParaPage.isShowingTextCheckAllOnButton();
+		Utils.takeScreenshot(driver, "BasicCheckbox", "testShowingTextCheckAllOnButton");
+		Assert.assertTrue(checkAllOnButton);
 	}
 	
 	@Test
 	public void testShowingTextUncheckAllOnButton() {
 		PageBasicCheckbox navegaParaPage = navegaParaPage();
-		Assert.assertTrue(navegaParaPage.isShowingTextUncheckAllOnButton());
+		boolean uncheckAllOnButton = navegaParaPage.isShowingTextUncheckAllOnButton();
+		Utils.takeScreenshot(driver, "BasicCheckbox", "testShowingTextUncheckAllOnButton");
+		Assert.assertTrue(uncheckAllOnButton);
 	}
 	
 	@Test
 	public void testAllCheckboxCheckedOnClickCheckAllButton() {
 		PageBasicCheckbox navegaParaPage = navegaParaPage();
-		Assert.assertTrue(navegaParaPage.isAllCheckboxCheckedOnClickCheckAllButton());
+		boolean clickCheckAllButton = navegaParaPage.isAllCheckboxCheckedOnClickCheckAllButton();
+		Utils.takeScreenshot(driver, "BasicCheckbox", "testAllCheckboxCheckedOnClickCheckAllButton");
+		Assert.assertTrue(clickCheckAllButton);
 	}
 	
 }
